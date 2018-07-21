@@ -1,0 +1,246 @@
+UTIL:UTIL.CNG  Changes in the Prolog Utilities
+==============================================
+
+------------------------------------------------------------------------
+R.A.O'K  22 October 1984			Write.Pl
+
+Added portable_listing/0-1 and portray_clause/1 to this file, and made
+it all appear to work.  Listing could still do with some attention; at
+the top level of code terms (representing goals) should have their
+arguments separated by ", " rather than just ",".  Oh well.
+
+------------------------------------------------------------------------
+R.A.O'K  18 October 1984			StrIo.Pl
+
+Added the {read,display,write,writeq,print}_chars predicates based on
+the portable I/O routines.  This is to do with standardisation.
+
+------------------------------------------------------------------------
+R.A.O'K  17 October 1984			Files.Pl
+
+Added the open_file/1-3 predicates I wrote for Graham Hill.  Alas,
+see('foo:baz') aborts unconditionally, and there is nothing I can
+do about it.  compile('foo:baz') crashes right out of Prolog!
+
+------------------------------------------------------------------------
+R.A.O'K  16 October 1984			Module.{Pl,Mic}
+
+Added a preprocessor that gives Dec-10 Prolog a module facility which
+is reasonably close to that I've suggested in the IBM non-talk as level
+1 of the standard.  It is not supposed to be fancy, but reasonably like
+what any bearable module system for Prolog code should be capable of.
+Note: data which are hacked by assert/retract should in any case have
+no clauses in compiled code.  For the moment, they should be listed with
+the other IMPORTS, as they don't live in this module's name pool.
+
+------------------------------------------------------------------------
+R.A.O'K  13 October 1984			Writef.{Pl,Mss,Hlp}
+
+Added the format code %j, and updated the on-line documentation.
+
+------------------------------------------------------------------------
+R.A.O'K  8 October 1984				IDBack.{Pl,Def}
+
+Added these two files.  "Intelligent backtracking for data bases".
+
+------------------------------------------------------------------------
+R.A.O'K  4 October 1984				Between.Pl
+
+Added gen_arg/3 for Mike Uschold.  It is a version of arg/3 which works
+when its first argument is a variable.  Actually, there doesn't seem to
+be any particularly compelling reason why arg/3 itself couldn't be this
+way.
+
+------------------------------------------------------------------------
+R.A.O'K  24 September 1984			XGProc.Pl, LogArr.Pl
+
+Fetched DHDW's logarithmic arrays package from SU-SCORE, converted it to
+my layout, and added it to the library.  Also converted XGPROC from CHAT
+to my layout and put it here as XGPROC.PL.
+------------------------------------------------------------------------
+R.A.O'K  21 September 1984			Bundle.Pl
+
+Wrote BUNDLE.PL to help people send a bundle of files in one go
+and pick it apart again.  The documentation is in the file.
+
+------------------------------------------------------------------------
+R.A.O'K  19 September 1984			Count.Pl
+
+Updated Count.Pl to cope with reconsult(F) and [-F].  This is not quite
+right, as it should clear the counts for the predicates such files
+define.  The right way to handle counting is to modify the TopLevel to
+keep track of where each clause came from and ask afterwards.  Hmmm.
+
+------------------------------------------------------------------------
+R.A.O'K  15 September 1984			Struct.Pl Metutl.Pl
+
+Dave Bowen spotted that simple/1 was defined in Struct.Pl and Metutl.Pl
+both.  He was considerate enough to refrain from pointing out that the
+two definitions were incompatible.  As MetUtl.Pl is the one which has
+been written up properly, and as both files were loaded by every file
+that loaded either, the one in MetUtl has won.  But not quite; it too
+checks for number(X) so that TIDY will work properly (that's why simple
+in Struct.Pl was defined in the first place).  If rationals were atomic
+as they should be in a new Prolog the two original MetUtl definition
+would have been just right.
+
+------------------------------------------------------------------------
+R.A.O'K  9 September 1984
+
+Added CTYPES.PL while trying to define character I/O for the "standard".
+
+------------------------------------------------------------------------
+R.A.O'K  2 September 1984
+
+Changes to TOPLEV.PL.  On the 30th of August I added two "hooks":
+toplevel_hook and break_hook.  Today I added portable_uses/1 and made
+all three ways of loading a file maintain a current_file/1 table.  I can
+see that this will end up merging with IXREF if I don't watch out.
+
+------------------------------------------------------------------------
+R.A.O'K  22 August 1984
+
+Copied the DistFix.*, Lazy.Pl, Random.Pl, and improved Tidy.Pl, Edit.Pl,
+and TypeCh.Pl files from MEC:.
+
+------------------------------------------------------------------------
+R.A.O'K  21 August 1984
+
+Added append/1 to FILES.PL.  This is not quite compatible with the
+predicate of that name in C Prolog, but whatever works in Dec-10 Prolog
+will work in C Prolog, so that's ok.
+
+Added the "pa" command to the advice package, and wrote ADVICE.HLP.
+
+What we need is a program which will go through a list of files
+and will generate the UTIL.HLP, NUTIL.HLP, and UTIL.DEF files
+automatically.  (Ixref.Def should be replaced by UTIL.DEF.)  I
+have something which does part of this, and that generated PREDS.HLP.
+Oh yes, UTIL.XRF should be generated as part of this process.
+
+---------------------------------------------------------------------------
+R.A.O'K  14 August 1984
+
+Added subseq/3 to LISTUT.PL and moved keys_and_values/3 to PROJEC.PL.
+Added ord_insert/3 to ORDSET.PL.
+
+---------------------------------------------------------------------------
+R.A.O'K  4 August 1984
+
+Added arith.pl,ask.pl,between.pl,getfile.pl, and occur.pl to UTIL.
+Added flat.pl to TOOLKI.MIC.  Neither UTIL.EXE nor TOOLKI.EXE has been
+rebuilt yet.
+
+UPDATE.PL has been changed to report some errors, and modify/3 has been
+added to it.   callable/1 has been added to APPLIC.PL, as has somechk/2. 
+APPLIC.PL has been tidied up generally.
+
+UTIL.DEF and IXREF.DEF have been brought further up to date.  It is quite
+wrong that they should be built by hand; there should be a tool for making
+such files.  The big question, of course, is where do the applies/2 facts
+come from?
+
+---------------------------------------------------------------------------
+R.A.O'K  5 April 1984
+
+Added the file FLAT.PL.  This used to be part of [400,421,Press,Misc]Misc.
+It has been generalised somewhat.  The strange flatten that was added to
+ListUt.Pl has been removed as this file already defined it.
+
+---------------------------------------------------------------------------
+R.A.O'K  15 November 1983
+
+Rewrote Readin.Pl.  It now has some comments, it was better than I thought.
+Added del_element to SetUtl.Pl.  I have recently moved many of the utilities
+to the VAX: they may be found in /usr/lib/prolog.
+
+----------------------------------------------------------------------------
+R.A.O'K  20 July 1983
+
+Removed an amazing number of spurious cuts from Invoca.Pl, made forall/2
+use \+ instead of 'not', and fixed a bug in binding/2 (at least I think
+it was a bug).  We could really use someone to go through the utilities
+and YalePl plus some of the Press stuff and produce a new set of utilities.
+
+-----------------------------------------------------------------------------
+R.A.O'K  12 July 1983
+
+Fixed a number of stupid little mistakes in Applic.Pl, BagUtl.Pl, SetUtl.Pl,
+Long.Pl, Not.Pl.  Made a cross-reference of the utilities (which is how the
+stupid little mistakes were found).  How come this has never been done before?
+Renamed IoRout.{Pl=>Old} as Writef.Pl replaced it years ago.
+
+------------------------------------------------------------------------------
+R.A.O'K  23 June 1983
+
+A few additions to writef.pl; fwritef/2,3, %i format, \e escape
+
+------------------------------------------------------------------------------
+R.A.O'K  28 May 1983  (005 coming up)
+
+I have written MetUtl.Pl, Not.Pl, Occur.Pl. and OrdSet.Pl,
+and rewritten Applic.Pl, ListUt.Pl, MultiL.Pl, and SetUtl.Pl .
+
+ListUt and SetUtl were ListRo and SetRou, but have been re-organised,
+extended, and thoroughly commented, to the point where new names were
+appropriate, and to bring them into line with BagUtl.Pl .  A very old
+bug in Multil was fixed.  Multil and Applic have also been thoroughly
+commented (well, I think it's thorough).
+
+Since the previous note in this file, we've lost Lawrence, and there
+was a period of confusion, when we thought someone was assigned to
+maintaining the library, but there wasn't.  That period is over: there
+still isn't anyone to maintain the library, but we're no longer
+confused about it.  I have been told the password, but I'm not going
+to be here much longer either.
+
+------------------------------------------------------------------------------
+Lawrence  9 August 82  (004)
+
+Richard has rewritten STRUCT.PL (it now has comments, and uses arg instead of
+univ throughout). I added an expensive tidy_withvars to TIDY.PL for people
+(Bernard in particular) to play with. Needs more thought if people start to
+seriously use it. Old versions archived as STRUCT.004 and TIDY.004.
+
+------------------------------------------------------------------------------
+Lawrence  29 July 82  (003)
+
+Moved a new LONG from Richard in and archived the old one as LONG.003. Reloaded
+UTIL with this new version which has some cosmetic renaming and some slight
+improvements to arctan. Trig functions still need doing properly!!
+MUTIL also reloaded recently to use Prolog version 3.46 (which UTIL now uses).
+
+------------------------------------------------------------------------------
+Lawrence  13 May 82
+
+New fix to TIDY.PL to allow simplify_axioms to be provided externally to
+it. Also improved when they are applied.
+Reload performed (only UTIL affected).
+
+------------------------------------------------------------------------------
+Lawrence  18 February 82
+
+Changed EDIT.PL to use plsys(_) due to changes in version 3.43.
+Added definition of core_image to MUTIL and UTIL for temporary convenience.
+No significant changes so nothing archived. Reload performed.
+
+------------------------------------------------------------------------------
+Lawrence  27 January 82   (002)
+
+And some more LONG fixes. Moved in new version, archived old as 002. No reload
+yet as I am waiting to sort out Prolog version.
+
+------------------------------------------------------------------------------
+Lawrence  13 September 81
+
+Another fix to LONG.PL from Richard. Moved his latest version to UTIL: and
+then reloaded the UTIL image in [400,444].
+------------------------------------------------------------------------------
+Lawrence  9 September 81   (001)
+
+Fix by Richard to LONG.PL involving evaluation of arcsin and arccos.
+We are still waiting for someone to do this trig evaluation properly,
+ie to use polynomial approximations of some flavour. (Interested?).
+Old version of LONG.PL archived as LONG.001.
+------------------------------------------------------------------------------
+

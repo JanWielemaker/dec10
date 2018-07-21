@@ -1,0 +1,230 @@
+[ UTIL:UTIL.TXT	page 1		(22 September 81) ]
+
+Utilities, by module.
+=====================
+
+UTIL:EDIT.PL
+
+edit(File)
+redo(File)
+
+UTIL:FILES.PL
+
+check_exists(File)
+file_exists(File)
+open(File)
+open(Old,File)
+close(File,Old)
+delete(File)
+
+UTIL:WRITEF.PL
+
+ttyprint(X)
+prlist(List)
+prconj(Conj)
+prexpr(Expr)
+writef(Format)
+writef(Format,List)
+
+UTIL:TRACE.PL
+
+error(Format,List,Action)
+tlim(Tlimit)
+ton(Name)
+toff(Name)
+toff
+trace(Format,Condition)
+trace(Format,List,Condition)
+
+UTIL:READIN.PL
+
+read_in(Sentence)
+
+UTIL:LISTRO.PL
+
+append(List1,List2,List3)
+disjoint(List)
+last(Element,List)
+listtoset(List,Set)
+nextto(X,Y,List)
+numlist(N1,N2,Numberlist)
+pairfrom(List,A,B,Rest)
+perm(List1,List2)
+perm2(X,Y,A,B)
+remove_dups(List,Set)
+rev(List1,List2)
+select(Element,List,Rest)
+sumlist(NumList,Sum)
+
+UTIL:SETROU.PL
+
+intersect(Set1,Set2,ISet)
+member(Element,Set)
+memberchk(Element,Set)
+nmember(Element,Set,N)
+seteq(Set1,Set2)
+subset(Subset,Superset)
+subtract(Set1,Set2,Subset)
+union(Set1,Set2,USet)
+
+UTIL:INVOCA.PL
+
+&(Goal1,Goal2)
+\\(Goal1,Goal2)
+any(Goallist)
+binding(N,Goal)
+findall(Var,Goal,List)
+for(N,Goal)
+forall(Goal1,Goal2)
+nobt(Goal)
+not(Goal)
+thnot(Goal)
+
+UTIL:APPLIC.PL
+
+apply(Pred,Args)
+checkand(Pred,Conj)
+checklist(Pred,List)
+mapand(Pred,Conj1,Conj2)
+maplist(Pred,List1,List2)
+convlist(Pred,List1,List2)
+some(Pred,List)
+sublist(Pred,List1,List2)
+
+UTIL:MULTIL.PL
+
+mlmaplist(Pred,Lists)
+mlmaplist(Pred,Lists,V)
+mlmaplist(Pred,Lists,Vin,Vout)
+mlmember(Elements,Lists)
+mlselect(Elements,Lists,Rests)
+
+UTIL:FLAGRO.PL
+
+flag(Flag,Old,New)
+
+UTIL:CMISCE.PL
+
+cgensym(Prefix,PossVar)
+gensym(Prefix,Var)
+concat(Atom1,Atom2,Atom3)
+
+UTIL:IMISCE.PL
+
+continue
+\=(X,Y)
+casserta(X)
+cassertz(X)
+clean
+diff(X,Y)
+gcc(Goal)
+subgoal(exact,Goal)
+
+UTIL:STRUCT.PL
+
+subst(Substitution,Old,New)
+occ(X,Term,N)
+variables(Term,VarSet)
+
+UTIL:TIDY.PL
+
+tidy(Expr,TidiedExpr)
+
+UTIL:LONG.PL
+
+number(Rational)
+eval(Command)
+eval(Expr,Answer)
+portray_number(Rational)
+[ UTIL:UTIL.TXT	page 2		(22 September 81) ]
+
+Utilities, alphabetically by name.
+==================================
+
+&(Goal1,Goal2)						util:invoca.pl 
+\=(X,Y)							util:imisce.pl  
+\\(Goal1,Goal2)						util:invoca.pl
+any(Goallist)						util:invoca.pl  
+append(List1,List2,List3)				util:listro.pl  
+apply(Pred,Args)					util:applic.pl
+binding(N,Goal)						util:invoca.pl
+casserta(X)						util:imisce.pl    
+cassertz(X)						util:imisce.pl    
+cgensym(Prefix,PossVar)					util:cmisce.pl   
+check_exists(File)					util:files.pl    
+checkand(Pred,Conj)					util:applic.pl  
+checklist(Pred,List)					util:applic.pl 
+clean							util:imisce.pl    
+close(File,Old)						util:files.pl 
+concat(Atom1,Atom2,Atom3)				util:cmisce.pl  
+continue						util:imisce.pl  
+convlist(Pred,List1,List2)				util:applic.pl 
+delete(File)						util:files.pl
+diff(X,Y)						util:imisce.pl 
+disjoint(List)						util:listro.pl 
+edit(File)						util:edit.pl
+error(Format,List,Action)				util:trace.pl
+eval(Command)						util:long.pl
+eval(Expr,Answer)					util:long.pl
+file_exists(File)					util:files.pl    
+findall(Var,Goal,List)					util:invoca.pl    
+flag(Flag,Old,New)					util:flagro.pl   
+for(N,Goal)						util:invoca.pl    
+forall(Goal1,Goal2)					util:invoca.pl  
+gcc(Goal)						util:imisce.pl 
+gensym(Prefix,Var)					util:cmisce.pl   
+intersect(Set1,Set2,ISet)				util:setrou.pl  
+last(Element,List)					util:listro.pl   
+listtoset(List,Set)					util:listro.pl  
+mapand(Pred,Conj1,Conj2)				util:applic.pl   
+maplist(Pred,List1,List2)				util:applic.pl  
+member(Element,Set)					util:setrou.pl  
+memberchk(Element,Set)					util:setrou.pl    
+mlmaplist(Pred,Lists)					util:multil.pl
+mlmaplist(Pred,Lists,Vin,Vout)				util:multil.pl  
+mlmaplist(Pred,Lists,V)					util:multil.pl   
+mlmember(Elements,Lists)				util:multil.pl   
+mlselect(Elements,Lists,Rests)				util:multil.pl  
+nextto(X,Y,List)					util:listro.pl
+nmember(Element,Set,N)					util:setrou.pl
+nobt(Goal)						util:invoca.pl
+not(Goal)						util:invoca.pl 
+number(Rational)					util:long.pl
+numlist(N1,N2,Numberlist)				util:listro.pl  
+occ(X,Term,N)						util:struct.pl  
+open(File)						util:files.pl 
+open(Old,File)						util:files.pl  
+pairfrom(List,A,B,Rest)					util:listro.pl
+perm(List1,List2)					util:listro.pl    
+perm2(X,Y,A,B)						util:listro.pl 
+portray_number(Rational)				util:long.pl
+prconj(Conj)						util:writef.pl   
+prexpr(Expr)						util:writef.pl   
+prlist(List)						util:writef.pl   
+read_in(Sentence)					util:readin.pl    
+redo(File)						util:edit.pl
+remove_dups(List,Set)					util:listro.pl
+rev(List1,List2)					util:listro.pl
+select(Element,List,Rest)				util:listro.pl  
+seteq(Set1,Set2)					util:setrou.pl
+some(Pred,List)						util:applic.pl
+subgoal(exact,Goal)					util:imisce.pl  
+sublist(Pred,List1,List2)				util:applic.pl  
+subset(Subset,Superset)					util:setrou.pl   
+subst(Substitution,Old,New)				util:struct.pl
+subtract(Set1,Set2,Subset)				util:setrou.pl 
+sumlist(NumList,Sum)					util:listro.pl
+thnot(Goal)						util:invoca.pl
+tidy(Expr,TidiedExpr)					util:tidy.pl
+tlim(Tlimit)						util:trace.pl
+ton(Name)						util:trace.pl
+toff							util:trace.pl
+toff(Name)						util:trace.pl
+trace(Format,Condition)					util:trace.pl 
+trace(Format,List,Condition)				util:trace.pl  
+ttyprint(X)						util:writef.pl
+union(Set1,Set2,USet)					util:setrou.pl
+variables(Term,VarSet)					util:struct.pl    
+writef(Format)						util:writef.pl 
+writef(Format,List)					util:writef.pl  
+

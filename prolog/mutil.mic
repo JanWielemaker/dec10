@@ -1,0 +1,31 @@
+; MUTIL.MIC  -  Load Mutil	'<silence>
+;
+;	This junk allows for automatic loading believe it or not
+;
+;	Call as:	/mutil		- to load mutil (normal use)
+;			/mutil auto	- used by MAKSYS
+;
+.on error:backto death
+.error ?
+.on operator:backto death
+.operator !
+.goto cont
+death::
+*^C
+*^C
+.if ($a = "auto") .let e1 = "error"
+! MUTIL.MIC HALTED
+.mic return
+cont::
+.let y = $date.["-",20], d = $date.[1,"-"]+" "+$y.[1,"-"]+" "+$y.["-",4]
+.if ($d.[1] = "0") .let d = $d.[2,20]
+;
+;				 Use latest version of Prolog
+.run prolog[400,444]  '<revive>
+* :- [''util:mutil''].
+* :- version(''Minimal Utilities Package  ('d)
+*Copyright (C) 1982 Dept. Artificial Intelligence. Edinburgh'').
+* :- core_image,
+*    display(''Minimal Utilities Package  ('d)''), ttynl,
+*    reinitialise.
+.save mutil[400,444]

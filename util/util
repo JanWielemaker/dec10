@@ -1,0 +1,54 @@
+%   File   : UTIL
+%   Author : Lawrence Byrd
+%   Updated: 14 August 1984
+%   Purpose: load the (full) Utilities Package
+
+
+%% See UTIL.MIC which calls this and then sets up a core image %%
+
+
+% LONG and TIDY are now included in UTIL
+%
+% The logical name "" is assumed to point to the right area, if you
+% are not using TOPS10 version 7.01, or don't understand logical names,
+% then just edit them all out.
+
+:- no_style_check(single_var).
+:- [
+                '/usr/bs/util/util.ops',        % General operator declarations
+                '/usr/bs/util/arith.ops'        % Arithmetic operator declarations
+   ].
+
+
+:- compile([
+                '/usr/bs/util/applic.pl',       % Application routines
+                '/usr/bs/util/arith.pl',        % New standard arithmetic primitives
+                '/usr/bs/util/ask.pl',          % Ask questions with 1-char answers
+                '/usr/bs/util/bagutl.pl',       % Bag routines
+                '/usr/bs/util/betwee.pl',       % Generate integers
+                '/usr/bs/util/files.pl',        % Manipulate files
+                '/usr/bs/util/flagro.pl',       % Flag handling
+                '/usr/bs/util/gensym.pl',       % Generate symbols
+                '/usr/bs/util/getfil.pl',       % read line/file name
+                '/usr/bs/util/listut.pl',       % List routines
+                '/usr/bs/util/long.pl',         % Rational arithmatic package
+                '/usr/bs/util/metutl.pl',       % More structure crunching
+                '/usr/bs/util/occur.pl',        % Subterm finding and replacing
+                '/usr/bs/util/projec.pl',       % Breaking lists of terms apart
+                '/usr/bs/util/readin.pl',       % Read in a sentence
+                '/usr/bs/util/setutl.pl',       % Set routines
+                '/usr/bs/util/struct.pl',       % Structure crunching
+                '/usr/bs/util/tidy.pl',         % Expression tidy/evaluator
+%                '/usr/bs/util/type.pl',         % Display files
+                '/usr/bs/util/trace.pl',        % Tracing routines
+%                '/usr/bs/util/trysee.pl',       % Used by TIDY.PL
+                '/usr/bs/util/writef.pl'        % Formatted write (writef)
+            ]).
+
+:- [
+                '/usr/bs/util/invoca.pl',       % Invocation routines
+                '/usr/bs/util/imisce.pl'        % Miscellaneous
+   ].
+
+
+:- style_check(all). 

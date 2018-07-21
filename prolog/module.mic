@@ -1,0 +1,8 @@
+.util
+*:- compile([
+*	''util:write.pl'',
+*	''util:module.pl''
+*   ]).
+*:- plsys(core_image),
+*	write(''Use :- translate(mod) to rewrite mod.MPL as mod.PL''), nl.
+.save mec:module.exe

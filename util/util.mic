@@ -1,0 +1,32 @@
+; UTIL.MIC  -  Load Util	'<silence>
+;
+;	This junk allows for automatic loading believe it or not
+;
+;	Call as:	/util		- to load util (normal use)
+;			/util auto	- used by MAKSYS
+;
+.on error:backto death
+.error ?
+.on operator:backto death
+.operator !
+.goto cont
+death::
+*^C
+*^C
+.if ($a = "auto") .let e1 = "error"
+! UTIL.MIC HALTED
+.mic return
+cont::
+.let y = $date.["-",20], d = $date.[1,"-"]+" "+$y.[1,"-"]+" "+$y.["-",4]
+.if ($d.[1] = "0") .let d = $d.[2,20]
+;
+;				 Use latest version of Prolog
+.run prolog[400,444]  '<revive>
+* :- [''util:util''].
+* :- version(''Utilities Package  ('d)
+*Copyright (C) 1984 Dept. Artificial Intelligence. Edinburgh'').
+* :- core_image,
+*    display(''Utilities Package  ('d)''), ttynl,
+*    reinitialise.
+.save util[400,444]
+

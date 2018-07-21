@@ -1,0 +1,55 @@
+;TOOLKI.MIC  -  Load ToolKit	'<silence>
+;
+;	Call as:	/toolki		- to load toolki (normal use)
+;			/toolki auto	- used by MAKSYS
+;
+.on error:backto death
+.error ?
+.on operator:backto death
+.operator !
+.goto cont
+death::
+*^C
+*^C
+.if ($a = "auto") .let e1 = "error"
+! TOOLKI.MIC  HALTED
+.mic return
+cont::
+.let y = $date.["-",20], d = $date.[1,"-"]+" "+$y.[1,"-"]+" "+$y.["-",4]
+.if ($d.[1] = "0") .let d = $d.[2,20]
+;
+.run util[400,444]  '<revive>			; Must use UTIL
+* :- [user].
+* help_file(help,  ''util:helper.hlp'', "#").
+* help_file(pp,	   ''util:pp.hlp'',     "#").
+* help_file(ixref, ''util:ixref.hlp'',  "#").
+* help_file(count, ''util:count.hlp'',  "#").
+* help_file(vcheck,''util:vcheck.hlp'', "#").
+*
+* help :-
+*	version,
+*	give_help.
+*
+* version_date('''d'').
+*
+^Z
+* :- compile([
+*	''util:flat.pl'',		%  flatten trees to lists
+*	''util:helper.pl'',		%  help utility
+*	''util:ordset.pl'',		%  
+*	''util:trysee.pl'',		%  try_hard_to_see
+*	''util:count.pl'',		%  clause counter
+*	''util:ixref.pl'',		%  interactive cross-referencer
+*	''util:pp.pl'',			%  pretty-printer
+*	''util:type.pl'',		%  Tops-10-like <ty> command
+*	''util:rdtok.pl'',		%  tokeniser; for vcheck.
+*	''util:vcheck.pl''		%  variable check
+*    ]).
+*
+* :- version(''ToolKit version 3 (7 May 84)'').
+*
+* :- plsys(core_image),
+*	write(''Prolog ToolKit version 3 (7 May 1984)''), nl,
+*	reinitialise.
+.save toolki[140,143,util]
+

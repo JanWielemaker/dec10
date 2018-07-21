@@ -1,0 +1,18 @@
+Changes made to DEC10 utilities in taking them across to Quintus
+----------------------------------------------------------------
+1/ & is an infix operator {op(920,xfy,&)} to allow chechand/2.
+   This change was made in applic.pl.
+2/ \=(X,Y) has been redefined as infix X\=Y {op(700,xfx,\=)}.
+   This change was made in imisce.pl.
+3/ A number of files have been missed out because they are no longer
+   needed in Quintus (I hope).  These are:
+   help.pl
+   ixref.pl
+   pp.pl
+   read.pl
+   typech.pl
+   long.pl
+4/ The utilities defined in flat.pl have not been added to the saved state
+   yet.  This is because that file wasn't on the tape of canned utilities
+   which we got from Bernard.  However, it is on its way from the DEC10
+   at this very moment.

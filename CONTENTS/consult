@@ -1,0 +1,72 @@
+%	File:    MYCONSULT.PL
+%	Author:  Dave Robertson
+%	Updated: 30 Sept 85
+%	Purpose: Compiles a set of DEC-10 utilities.
+%	Comments:The saved state is normally in usr/sin/dave/bin/uquintus.bin.
+
+%	The following correspond to the old DEC-10 baseload utilities.
+%	Note that some are commented out for compatibility reasons.
+
+:-
+	no_style_check(all),
+	compile([
+'/usr/sin/dave/qutil/prolog/advice.pl',
+'/usr/sin/dave/qutil/prolog/arrays.pl',
+'/usr/sin/dave/qutil/prolog/backup.pl',
+'/usr/sin/dave/qutil/prolog/count.pl',
+'/usr/sin/dave/qutil/prolog/expand.pl',
+'/usr/sin/dave/qutil/prolog/flat.pl',
+'/usr/sin/dave/qutil/prolog/graphs.pl',
+'/usr/sin/dave/qutil/prolog/heaps.pl',
+%'/usr/sin/dave/qutil/prolog/help.pl',
+'/usr/sin/dave/qutil/prolog/helper.pl',
+%'/usr/sin/dave/qutil/prolog/ixref.def',
+%'/usr/sin/dave/qutil/prolog/ixref.hlp',
+%'/usr/sin/dave/qutil/prolog/ixref.pl',
+'/usr/sin/dave/qutil/prolog/medic.pl',
+'/usr/sin/dave/qutil/prolog/lib2.pl',
+'/usr/sin/dave/qutil/prolog/not.pl',
+'/usr/sin/dave/qutil/prolog/ordset.pl',
+%'/usr/sin/dave/qutil/prolog/pp.pl',
+'/usr/sin/dave/qutil/prolog/queues.pl',
+%'/usr/sin/dave/qutil/prolog/read.pl',
+'/usr/sin/dave/qutil/prolog/rdsent.pl',
+'/usr/sin/dave/qutil/prolog/setof.pl',
+'/usr/sin/dave/qutil/prolog/setutl.pl',
+'/usr/sin/dave/qutil/prolog/trees.pl',
+%'/usr/sin/dave/qutil/prolog/typech.pl',
+'/usr/sin/dave/qutil/prolog/update.pl',
+'/usr/sin/dave/qutil/prolog/vcheck.pl',
+'/usr/sin/dave/qutil/prolog/write.pl',
+'/usr/sin/dave/qutil/util/applic.pl',
+'/usr/sin/dave/qutil/util/arith.pl',
+'/usr/sin/dave/qutil/util/ask.pl',
+'/usr/sin/dave/qutil/util/assoc.pl',
+'/usr/sin/dave/qutil/util/bagutl.pl',
+'/usr/sin/dave/qutil/util/files.pl',
+'/usr/sin/dave/qutil/util/flagro.pl',
+'/usr/sin/dave/qutil/util/gensym.pl',
+'/usr/sin/dave/qutil/util/imisce.pl',
+'/usr/sin/dave/qutil/util/invoca.pl',
+'/usr/sin/dave/qutil/util/listut.pl',
+%'/usr/sin/dave/qutil/util/long.pl',
+'/usr/sin/dave/qutil/util/metutl.pl',
+'/usr/sin/dave/qutil/util/occur.pl',
+'/usr/sin/dave/qutil/util/projec.pl',
+'/usr/sin/dave/qutil/util/readin.pl',
+'/usr/sin/dave/qutil/util/struct.pl',
+'/usr/sin/dave/qutil/util/tidy.pl',
+'/usr/sin/dave/qutil/util/trace.pl',
+'/usr/sin/dave/qutil/util/trysee.pl',
+'/usr/sin/dave/qutil/util/type.pl',
+'/usr/sin/dave/qutil/util/writef.pl' ]).
+
+%	Utilities above and beyond the old DEC-10 baseload.
+:-
+	compile([
+	'/usr/sin/dave/qutil/util/betwee.pl',
+	'/usr/sin/dave/qutil/util/getfil.pl',
+	'/usr/sin/dave/qutil/mikesutil/cascon.pl',
+	'/usr/sin/dave/qutil/mikesutil/myread.pl',
+	'/usr/sin/dave/qutil/mikesutil/ask.pl',
+	'/usr/sin/dave/qutil/mikesutil/genfac.pl']).
